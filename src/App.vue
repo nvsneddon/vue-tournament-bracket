@@ -1,13 +1,23 @@
 <template>
-    <bracket :rounds="rounds">
-        <template slot="player" slot-scope="{ player }">
-            {{ player.name }}
-        </template>
-    </bracket>
+<div>
+	<navbar><p>This will go into the slot</p></navbar>
+	<bracket :rounds="rounds">
+		<template slot="player" slot-scope="{ player }">
+			{{ player.name }}
+		</template> 
+	   
+	</bracket>
+	<login> </login>
+	
+   </div>
 </template>
 
 <script>
-    import Bracket from "./Bracket";
+	import Bracket from "./Bracket";
+	import navbar from "./navbar";
+	import login from "./login";
+	
+
 
     var players = 8;
 
