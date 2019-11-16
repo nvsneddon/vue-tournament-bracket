@@ -1,6 +1,7 @@
 <template>
 	<div>
         <p> {{greeting}} </p>
+        
     </div>
 </template>
 
