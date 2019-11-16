@@ -1,14 +1,20 @@
 <template>
-    <bracket :rounds="rounds">
-        <template slot="player" slot-scope="{ player }">
-            {{ player.name }}
-        </template>
-    </bracket>
+	<div>
+	<navbar><p>This will go into the slot</p></navbar>
+	<bracket :rounds="rounds">
+		<template slot="player" slot-scope="{ player }">
+			{{ player.name }}
+		</template> 
+	   
+	</bracket>
+	
+   </div>
 </template>
 
 <script>
-    import Bracket from "./Bracket";
-
+	import Bracket from "./Bracket";
+	import navbar from "./navbar";
+	
     var players = 8;
 
     var mock_db = { round1:{Player1:{id:'1', name: "Competitor 1"},
@@ -70,11 +76,15 @@
         }
     };
 
+
 </script>
 
 <style>
 
 html, body {
 	font-family: "Roboto";
-}
+
+	margin: 0px;
+	padding: 0px;
+};
 </style>
