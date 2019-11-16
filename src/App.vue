@@ -30,19 +30,19 @@
 
     const rounds = [];
 
-    var count = 1;
-    var round_obj = {};
-    var games = [];
-    var round = 1;
-    var game = {};
+    let count = 1;
+    let round_obj = {};
+    let games = [];
+    let round = 1;
+    let game = {};
 
     while (players > 1) {
         round_obj = {};
         games = [];
         while (count <= players) {
-            var player1 = 'Player' + count;
-            var player2 = 'Player' + (count + 1);
-            var round_name = 'round' + round;
+            const player1 = 'Player' + count;
+            const player2 = 'Player' + (count + 1);
+            const round_name = 'round' + round;
             game = {
                 player1: {id: mock_db[round_name][player1].id, name: mock_db[round_name][player1].name, det: true, winner: false},
                 player2: {id: mock_db[round_name][player2].id, name: mock_db[round_name][player2].name, det: true, winner: true},
