@@ -9,54 +9,54 @@
 <script>
     import Bracket from "./Bracket";
 
-    const rounds = [
-        //Quarter
-        {
-            games: [
-                {
-                    player1: { id: 1, name: "Competitor 1", det: true, winner: true },
-                    player2: { id: 2, name: "Competitor 2", det: true, winner: false },
-                },
-                {
-                    player1: { id: 3, name: "Competitor 3", det: true, winner: false },
-                    player2: { id: 4, name: "Competitor 4", det: true, winner: true },
-                },
-                {
-                    player1: { id: 5, name: "Competitor 5", det: true, winner: true },
-                    player2: { id: 6, name: "Competitor 6", det: true, winner: false }
-                },
-                {
-                    player1: { id: 7, name: "Competitor 7", det: true, winner: false },
-                    player2: { id: 8, name: "Competitor 8", det: true, winner: true },
-                }
-            ],
-        },
-        //Semi
-        {
-            games: [
-                {
+    var players = 8;
 
-                    player1: { id: 1, name: "Competitor 1", det: true, winner: false },
-                    player2: { id: 4, name: "Competitor 4", det: true, winner: true },
-                },
-                {
+    var mock_db = { round1:{Player1:{id:'1', name: "Competitor 1"},
+                            Player2:{id: '2', name:"Competitor 2"},
+                            Player3:{id: '3', name:"Competitor 3"},
+                            Player4: {id: '4', name:"Competitor 4"},
+                            Player5:{id:'5', name: "Competitor 5"},
+                            Player6:{id: '6', name:"Competitor 6"},
+                            Player7:{id: '7', name:"Competitor 7"},
+                            Player8: {id: '8', name:"Competitor 8"}},
 
-                    player1: { id: 5, name: "Competitor 5", det: false, winner: false },
-                    player2: { id: 8, name: "Competitor 8", det: false, winner: true },
-                }
-            ]
-        },
-        //Final
-        {
-            games: [
-                {
+                    round2:{Player1:{id:'1', name: 'Competitor 1'},
+                            Player2:{id:'4', name: 'Competitor 4'},
+                            Player3:{id:'6', name: 'Competitor 6'},
+                            Player4:{id:'8', name: 'Competitor 8'}},
 
-                    player1: { id: 4, name: "Competitor 4", det: false, winner: false },
-                    player2: { id: -1, name: "", det: false, winner: true },
-                }
-            ]
+                    round3:{Player1:{id:'4', name: 'Competitor 4'},
+                            Player2:{id:'6', name: 'Competitor 6'}}};
+
+    const rounds = [];
+
+    var count = 1;
+    var round_obj = {};
+    var games = [];
+    var round = 1;
+    var game = {};
+
+    while (players > 1) {
+        round_obj = {};
+        games = [];
+        while (count <= players) {
+            var player1 = 'Player' + count;
+            var player2 = 'Player' + (count + 1);
+            var round_name = 'round' + round;
+            game = {
+                player1: {id: mock_db[round_name][player1].id, name: mock_db[round_name][player1].name, det: true, winner: false},
+                player2: {id: mock_db[round_name][player2].id, name: mock_db[round_name][player2].name, det: true, winner: true},
+            };
+
+            count += 2;
+            games.push(game)
         }
-    ];
+        round_obj.games = games;
+        rounds.push(round_obj);
+        count = 1;
+        players /= 2;
+        round += 1;
+    }
 
     export default {
         name: "app",
@@ -69,10 +69,12 @@
             }
         }
     };
+
 </script>
+
 <style>
 
 html, body {
 	font-family: "Roboto";
-};
+}
 </style>
