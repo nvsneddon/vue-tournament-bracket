@@ -7,10 +7,12 @@ Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 
-// const NotFound = {template : '<p> this in the the page you are looking for </p>'}
+//const NotFound = {template : '<p> this in the the page you are looking for </p>'}
 
 const routes = [
-    { path: '', component: App}
+    { path: '/', component: App},
+    {path: '/login', component: App },
+//    {path: '/tourney', component: NotFound },
 ];
 
 const router = new VueRouter({

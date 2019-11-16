@@ -7,6 +7,7 @@
 		</template> 
 	   
 	</bracket>
+	<login> </login>
 	
    </div>
 </template>
@@ -14,6 +15,7 @@
 <script>
 	import Bracket from "./Bracket";
 	import navbar from "./navbar";
+	import login from "./login";
 	
 
 	const rounds = [
